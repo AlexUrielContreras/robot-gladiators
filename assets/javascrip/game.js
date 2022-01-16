@@ -30,7 +30,7 @@ let fight = function(enemy) {
         window.alert(enemy.name + ' has died!');
   
         // award player money for winning
-       playerInfo.money =playerInfo.money + 20;
+       playerInfo.money = playerInfo.money + 20;
   
         // leave while() loop since enemy is dead
         break;
@@ -60,9 +60,10 @@ let fight = function(enemy) {
 // Calls the fight function into a for loop
 let startGame = function() {
   playerInfo.reset();
-  for(var i = 0; i < enemyInfo.length; i++){
+  for(var i = 0;i < enemyInfo.length; i++){
     if (playerInfo.health > 0) {
       window.alert("Welcome to Robot Gladiators! Round " +  ( i + 1 ));
+      debugger;
       let pickedEnemyObj = enemyInfo[i];
       pickedEnemyObj.health = randomNumber(40, 60);
       fight(pickedEnemyObj);
@@ -128,8 +129,17 @@ let randomNumber = function(min, max){
   return value;
 };
 
+let getPlayerName = function() {
+  let name = "";
+  while (name === "" || name === null){
+    name = prompt("What is your robot's name?");
+  }
+  console.log("Your robot's name is " + name);
+  return name;
+};
+
 let playerInfo = {
-  name: window.prompt("What is your robot's name?"),
+  name: getPlayerName(),
   health: 100,
   attack: 10, 
   money: 10,
