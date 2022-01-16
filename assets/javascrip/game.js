@@ -18,6 +18,10 @@ let fightOrSkip =function() {
 }
 
 let fight = function(enemy) {
+  let isPlayerTurn = true;
+  if (Math.random() > 0.5) {
+    isPlayerTurn = false;
+  }
     while (playerInfo.health > 0 && enemy.health > 0) {
       
       if (fightOrSkip()) {
@@ -60,6 +64,7 @@ let fight = function(enemy) {
       } else {
         window.alert(playerInfo.name + ' still has ' + playerInfo.health + ' health left.');
       }
+      isPlayerTurn = !isPlayerTurn;
     }
   };
 
@@ -69,7 +74,6 @@ let startGame = function() {
   for(var i = 0;i < enemyInfo.length; i++){
     if (playerInfo.health > 0) {
       window.alert("Welcome to Robot Gladiators! Round " +  ( i + 1 ));
-      debugger;
       let pickedEnemyObj = enemyInfo[i];
       pickedEnemyObj.health = randomNumber(40, 60);
       fight(pickedEnemyObj);
