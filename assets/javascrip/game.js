@@ -6,7 +6,6 @@ let fightOrSkip =function() {
     window.alert("You need to provide a valid answer! Please try again.");
     return fightOrSkip();
   }
-
   if (promptFight === "skip") {
     let confirmSkip = window.confirm("Are you sure you would like to skip?");
     if (confirmSkip) {
@@ -16,7 +15,6 @@ let fightOrSkip =function() {
     }
   }
 }
-
 let fight = function(enemy) {
     while (playerInfo.health > 0 && enemy.health > 0) {
       
